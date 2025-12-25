@@ -13,7 +13,7 @@ export default function Navbar() {
     return (
         <header className="border-b border-gray-800">
             <nav className="max-w-5xl mx-auto flex justify-between items-center p-4">
-                <span className="font-bold text-lg">Mahmudumm</span>
+                <span className="font-bold text-lg"></span>
 
                 <ul className="flex gap-6 text-sm">
                     {navItems.map((item) => (

@@ -12,7 +12,7 @@ export default function Home() {
         {/* 1. Dekoratif arka plan katmanı */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
           <span className="text-[20rem] font-bold opacity-5">
-            HI
+
           </span>
         </div>
 

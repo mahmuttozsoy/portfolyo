@@ -1,75 +1,90 @@
 "use client";
 
-import { FaGithub, FaLinkedin, FaEnvelope, FaInstagram } from "react-icons/fa";
-
-const socials = [
-    {
-        name: "Email",
-        href: "mailto:mahmutozsoy2604@gmail.com",
-        icon: FaEnvelope,
-    },
-    {
-        name: "GitHub",
-        href: "https://github.com/mahmutozsoy21",
-        icon: FaGithub,
-    },
-    {
-        name: "LinkedIn",
-        href: "https://www.linkedin.com/in/mahmuttozsoy/",
-        icon: FaLinkedin,
-    },
-    {
-        name: "İnstagram",
-        href: "https://www.instagram.com/mahmuttozsoy/",
-        icon: FaInstagram,
-    }
-];
+import {
+    FaGithub,
+    FaLinkedin,
+    FaEnvelope,
+    FaInstagram,
+} from "react-icons/fa";
 
 export default function ContactSection() {
     return (
-        <section id="contact" className="space-y-6">
-            <h2 className="text-3xl font-bold">İletişim</h2>
+        <section
+            id="contact"
+            className="min-h-[60vh] flex items-center"
+        >
+            <div className="max-w-6xl mx-auto w-full px-6
+                      grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
 
-            <div className="mt-10 text-center space-y-4">
-                <h3 className="text-xl font-semibold">
-                    Benimle İletişime Geç
-                </h3>
+                {/* SOL TARAF – METİN */}
+                <div className="space-y-6">
+                    <h2 className="text-3xl font-bold">
+                        İletişim
+                    </h2>
 
-                <p className="text-gray-400 max-w-md mx-auto">
-                    Yeni bir proje, iş birliği veya fikir hakkında konuşmak istersen
-                    benimle dilediğin kanaldan iletişime geçebilirsin.
-                </p>
+                    <h3 className="text-xl font-semibold">
+                        Benimle İletişime Geç
+                    </h3>
 
-                <a
-                    href="mailto:mahmutozsoy2604@gmail.com"
-                    className="inline-block mt-2 px-6 py-3 rounded-full border
-               hover:bg-gray-800 transition"
-                >
-                    Mail Gönder →
-                </a>
-            </div>
+                    <p className="text-gray-400 leading-relaxed max-w-md">
+                        Yeni bir proje, iş birliği veya fikir hakkında
+                        konuşmak istersen benimle dilediğin kanaldan
+                        iletişime geçebilirsin.
+                    </p>
 
+                    <a
+                        href="mailto:mahmutozsoy2604@gmail.com"
+                        className="inline-block px-6 py-3 rounded-full border
+                       hover:bg-gray-800 transition"
+                    >
+                        Mail Gönder →
+                    </a>
+                </div>
 
-            <div className="flex justify-center gap-6">
-                {socials.map((item) => {
-                    const Icon = item.icon;
-
-                    return (
+                {/* SAĞ TARAF – İKONLAR */}
+                <div className="flex md:justify-end">
+                    <div className="flex flex-col gap-4">
                         <a
-                            key={item.name}
-                            href={item.href}
-                            target={item.href.startsWith("http") ? "_blank" : undefined}
-                            rel="noopener noreferrer"
-                            className="w-12 h-12 flex items-center justify-center rounded-full border"
-                            aria-label={item.name}
+                            href="mailto:mahmutozsoy2604@gmail.com"
+                            className="w-12 h-12 flex items-center justify-center
+                         rounded-full border hover:bg-gray-800 transition"
                         >
-                            <Icon size={20} />
+                            <FaEnvelope />
                         </a>
-                    );
-                })}
+
+                        <a
+                            href="https://github.com/mahmutozsoy21"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="w-12 h-12 flex items-center justify-center
+                         rounded-full border hover:bg-gray-800 transition"
+                        >
+                            <FaGithub />
+                        </a>
+
+                        <a
+                            href="https://www.linkedin.com/in/mahmuttozsoy/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="w-12 h-12 flex items-center justify-center
+                         rounded-full border hover:bg-gray-800 transition"
+                        >
+                            <FaLinkedin />
+                        </a>
+
+                        <a
+                            href="https://www.instagram.com/mahmuttozsoy/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="w-12 h-12 flex items-center justify-center
+                         rounded-full border hover:bg-gray-800 transition"
+                        >
+                            <FaInstagram />
+                        </a>
+                    </div>
+                </div>
+
             </div>
-
-
         </section>
     );
 }
