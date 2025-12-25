@@ -2,81 +2,83 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import projectDetails from "../projects/[slug]/page";
 
 const projects = [
-    /*{
-        title: "Akıllı Ev Otomasyon Sistemi",
-        slug: "akilli-ev-otomasyon-sistemi",
-        shortDescription:
-            "IoT ve yapay zekâ destekli, sensör verileriyle çalışan akıllı ev otomasyonu sistemi.",
-        image: "/images/downlod.png",
-    },*/
     {
         title: "Domates Yaprak Hastalığı Tespiti",
         slug: "domates-yaprak-hastaligi",
         shortDescription:
-            "YOLOv8 ve derin öğrenme kullanılarak domates yapraklarındaki hastalıkları tespit eden yapay zekâ sistemi. Mobil ve API entegrasyonu ile gerçek zamanlı analiz.",
+            "YOLOv8 ve derin öğrenme ile domates yapraklarındaki hastalıkları tespit eden, mobil ve API entegrasyonlu yapay zekâ sistemi.",
         image: "/images/tomato.png",
     },
-    /*
-        title: "CampusApp",
-        slug: "campusapp",
-        shortDescription:
-            "Üniversite öğrencileri için kampüs, yurt ve çevre hizmetlerini tek uygulamada toplayan mobil platform. Flutter, API ve modüler mimari ile geliştirildi.",
-        image: "/images/campus.png",
-    */
     {
         title: "İlaç Asistan",
         slug: "ilac-asistan",
         shortDescription:
-            "Karekod/GTIN tarama ile ilaç bilgilerini sunan, hasta dostu mobil uygulama. Yerel veritabanı ve yapay zekâ destekli açıklamalar içerir.",
+            "Karekod/GTIN tarama ile ilaç bilgilerini sunan, yapay zekâ destekli hasta dostu mobil uygulama.",
         image: "/images/medicine.png",
     },
-
 ];
 
 export default function ProjectsSection() {
     return (
-        <section id="projects" className="space-y-10">
-            <h2 className="text-3xl font-bold">Projeler</h2>
+        <section id="projects" className="py-24">
+            <div className="max-w-6xl mx-auto px-6">
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {projects.map((project) => (
-                    <motion.div
-                        key={project.slug}
-                        whileHover={{ y: -6, scale: 1.02 }}
-                        transition={{ type: "spring", stiffness: 300 }}
-                        className="border border-gray-800 rounded-xl overflow-hidden
-                       hover:border-gray-600 transition"
-                    >
-                        <a href={`/projects/${project.slug}`}>
+                {/* Başlık */}
+                <motion.h2
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5 }}
+                    viewport={{ once: true }}
+                    className="text-3xl font-bold mb-12"
+                >
+                    Projeler
+                </motion.h2>
+
+                {/* Kartlar */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    {projects.map((project, index) => (
+                        <motion.a
+                            key={project.slug}
+                            href={`/projects/${project.slug}`}
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.4, delay: index * 0.1 }}
+                            viewport={{ once: true }}
+                            whileHover={{ y: -8, scale: 1.02 }}
+                            className="group relative border border-gray-800 rounded-xl overflow-hidden
+                         bg-black/40 backdrop-blur hover:border-green-300 transition"
+                        >
                             {/* Görsel */}
-                            <Image
-                                src={project.image}
-                                alt={project.title}
-                                width={450}
-                                height={250}
-                                className="object-cover"
-                            />
+                            <div className="overflow-hidden">
+                                <Image
+                                    src={project.image}
+                                    alt={project.title}
+                                    width={600}
+                                    height={320}
+                                    className="object-cover w-full h-[220px] group-hover:scale-105 transition"
+                                />
+                            </div>
 
                             {/* İçerik */}
-                            <div className="p-5 space-y-2">
+                            <div className="p-6 space-y-3">
                                 <h3 className="text-xl font-semibold">
                                     {project.title}
                                 </h3>
 
-                                <p className="text-gray-400 text-sm">
+                                <p className="text-gray-400 text-sm leading-relaxed">
                                     {project.shortDescription}
                                 </p>
 
-                                <span className="text-sm underline">
+                                <span className="inline-block text-sm text-green-300 group-hover:underline">
                                     Detayları Gör →
                                 </span>
                             </div>
-                        </a>
-                    </motion.div>
-                ))}
+                        </motion.a>
+                    ))}
+                </div>
+
             </div>
         </section>
     );
