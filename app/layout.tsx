@@ -42,4 +42,41 @@ export const metadata = {
   ],
 
 };
+<script
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{
+    __html: JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "@id": "https://mahmutozsoy.dev/#person",
+      "name": "Mahmut Özsoy",
+      "url": "https://mahmutozsoy.dev",
+      "image": "https://mahmutozsoy.dev/images/mahmut.jpeg",
+      "jobTitle": "Software Engineer",
+      "description":
+        "Mahmut Özsoy, yapay zekâ, mobil uygulama geliştirme ve makine öğrenmesi alanlarında çalışan bir yazılım mühendisidir.",
+      "sameAs": [
+        "https://www.linkedin.com/in/mahmuttozsoy/",
+        "https://github.com/mahmutozsoy21"
+      ],
+      "alumniOf": [
+        {
+          "@type": "CollegeOrUniversity",
+          "name": "Bandırma Onyedi Eylül Üniversitesi"
+        },
+
+      ],
+      "knowsAbout": [
+        "Artificial Intelligence",
+        "Machine Learning",
+        "Deep Learning",
+        "Flutter",
+        "Mobile Application Development",
+        "Computer Vision",
+        "Intelligent Systems"
+      ]
+    }),
+  }}
+/>
+
 
