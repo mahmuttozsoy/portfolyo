@@ -1,6 +1,6 @@
 import "./globals.css";
 import Footer from "./components/Footer";
-
+import NavbarWrapper from "./components/NavbarWrapper";
 
 export default function RootLayout({
   children,
@@ -9,16 +9,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="tr">
-      <body className="bg-gray-950 text-gray-100 flex flex-col min-h-screen">
-        {/* Navbar artık sadece ana sayfada, burada kaldırıldı */}
-        <main className="flex-1 max-w-5xl mx-auto p-6">
-          {children}
-        </main>
+      <body>
+        <NavbarWrapper />
+        {children}
         <Footer />
       </body>
     </html>
   );
 }
+
 export const metadata = {
   title: "Mahmut Özsoy | AI & Mobile Software Engineer",
   description:

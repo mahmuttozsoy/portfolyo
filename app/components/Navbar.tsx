@@ -1,7 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useState } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
 import Link from "next/link";
 
@@ -18,7 +17,7 @@ const navItems = [
 export default function Navbar() {
     const [open, setOpen] = useState(false);
     return (
-        <header className="border-b border-gray-800 sticky top-0 z-40 bg-gray-950">
+        <header className="border-b border-gray-800 sticky top-0 z-40 bg-gray-951 backdrop-blur-md bg-black/30">
             <nav className="max-w-5xl mx-auto flex justify-between items-center p-4 relative">
                 <button
                     className="md:hidden text-gray-300 hover:text-white transition"
