@@ -16,13 +16,13 @@ const projects = [
         slug: "ilac-asistan",
         shortDescription:
             "Karekod/GTIN tarama ile ilaç bilgilerini sunan, yapay zekâ destekli hasta dostu mobil uygulama.",
-        image: "/images/medicine.png",
+        image: "",
     },
 ];
 
 export default function ProjectsSection() {
     return (
-        <section id="projects" className="py-24">
+        <section id="projects" className="py-16">
             <div className="max-w-6xl mx-auto px-6">
 
                 {/* Başlık */}
@@ -31,7 +31,7 @@ export default function ProjectsSection() {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}
                     viewport={{ once: true }}
-                    className="text-3xl font-bold mb-12"
+                    className="text-3xl font-bold mb-12 text-emerald-200"
                 >
                     Projeler
                 </motion.h2>
@@ -48,18 +48,20 @@ export default function ProjectsSection() {
                             viewport={{ once: true }}
                             whileHover={{ y: -8, scale: 1.02 }}
                             className="group relative border border-gray-800 rounded-xl overflow-hidden
-                         bg-black/40 backdrop-blur hover:border-green-300 transition"
+                                 bg-black/40 backdrop-blur hover:border-emerald-300 transition"
                         >
-                            {/* Görsel */}
-                            <div className="overflow-hidden">
-                                <Image
-                                    src={project.image}
-                                    alt={project.title}
-                                    width={600}
-                                    height={320}
-                                    className="object-cover w-full h-[180px] md:h-[220px] group-hover:scale-105 transition"
-                                />
-                            </div>
+                            {/* Görsel (sadece proje için image tanımlıysa göster) */}
+                            {project.image && (
+                                <div className="overflow-hidden">
+                                    <Image
+                                        src={project.image}
+                                        alt={project.title}
+                                        width={600}
+                                        height={320}
+                                        className="object-cover w-full h-[180px] md:h-[220px] group-hover:scale-105 transition"
+                                    />
+                                </div>
+                            )}
 
                             {/* İçerik */}
                             <div className="p-6 space-y-3">
@@ -71,7 +73,7 @@ export default function ProjectsSection() {
                                     {project.shortDescription}
                                 </p>
 
-                                <span className="inline-block text-sm text-green-300 group-hover:underline">
+                                <span className="inline-block text-sm text-emerald-300 group-hover:underline">
                                     Detayları Gör →
                                 </span>
                             </div>

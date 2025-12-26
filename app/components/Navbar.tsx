@@ -22,19 +22,19 @@ export default function Navbar() {
                 <button
                     className="md:hidden text-gray-300 hover:text-white transition"
                     onClick={() => setOpen(!open)}
+                    aria-label="Menüyü aç"
                 >
                     {open ? <FiX size={24} /> : <FiMenu size={24} />}
                 </button>
 
+                {/* logo removed per request */}
 
-
-
-                <ul className="hidden md:flex gap-6 text-sm">
+                <ul className="hidden md:flex ml-auto gap-8 text-lg md:text-xl uppercase tracking-wider font-semibold">
                     {navItems.map((item) => (
                         <li key={item.href}>
                             <a
                                 href={item.href}
-                                className="text-gray-400 hover:text-white transition"
+                                className="text-emerald-200 hover:text-emerald-300 transition focus:outline-none focus:ring-2 focus:ring-emerald-400 rounded"
                             >
                                 {item.label}
                             </a>

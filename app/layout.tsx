@@ -1,6 +1,7 @@
 import "./globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import AnimatedPage from "./components/AnimatedPage";
 
 export default function RootLayout({
   children,
@@ -12,7 +13,7 @@ export default function RootLayout({
       <body className="bg-gray-950 text-gray-100 flex flex-col min-h-screen">
         <Navbar />
         <main className="flex-1 max-w-5xl mx-auto p-6">
-          {children}
+          <AnimatedPage>{children}</AnimatedPage>
         </main>
         <Footer />
       </body>

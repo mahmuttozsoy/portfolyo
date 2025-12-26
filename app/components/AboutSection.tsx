@@ -43,7 +43,7 @@ const aboutCards = [
 
 export default function AboutSection() {
     return (
-        <section id="about" className="py-24">
+        <section id="about" className="py-1">
             <div className="max-w-6xl mx-auto px-6">
 
                 {/* Başlık */}
@@ -52,7 +52,7 @@ export default function AboutSection() {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}
                     viewport={{ once: true }}
-                    className="text-3xl font-bold mb-12"
+                    className="text-3xl font-bold mb-12 text-emerald-200"
                 >
                     Hakkımda
                 </motion.h2>
@@ -67,7 +67,7 @@ export default function AboutSection() {
                             transition={{ duration: 0.4, delay: index * 0.1 }}
                             viewport={{ once: true }}
                             whileHover={{ y: -8, scale: 1.02 }}
-                            className="relative border border-gray-800 rounded-xl p-6 bg-black/40 backdrop-blur hover:border-green-300 transition"
+                            className="relative border border-gray-800 rounded-xl p-6 bg-black/40 backdrop-blur hover:border-emerald-300 transition"
                         >
                             <div className="text-3xl mb-4">{card.icon}</div>
 
