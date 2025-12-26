@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { FiMenu, FiX } from "react-icons/fi";
 
 
@@ -15,9 +16,8 @@ const navItems = [
 
 export default function Navbar() {
     const [open, setOpen] = useState(false);
-
     return (
-        <header className="border-b border-gray-800 relative">
+        <header className="border-b border-gray-800 sticky top-0 z-40 bg-gray-950">
             <nav className="max-w-5xl mx-auto flex justify-between items-center p-4 relative">
                 <button
                     className="md:hidden text-gray-300 hover:text-white transition"
@@ -27,14 +27,14 @@ export default function Navbar() {
                     {open ? <FiX size={24} /> : <FiMenu size={24} />}
                 </button>
 
-                {/* logo removed per request */}
-
                 <ul className="hidden md:flex ml-auto gap-8 text-lg md:text-xl uppercase tracking-wider font-semibold">
                     {navItems.map((item) => (
                         <li key={item.href}>
                             <a
                                 href={item.href}
-                                className="text-emerald-200 hover:text-emerald-300 transition focus:outline-none focus:ring-2 focus:ring-emerald-400 rounded"
+                                className="relative px-1 pb-1 text-emerald-200 hover:text-emerald-300 transition rounded
+                                    after:absolute after:left-1 after:right-1 after:bottom-0 after:h-2 after:rounded-b-full after:transition-all after:duration-300 after:content-['']
+                                    after:bg-emerald-400/30 after:blur after:opacity-0 hover:after:opacity-80"
                             >
                                 {item.label}
                             </a>
@@ -43,8 +43,7 @@ export default function Navbar() {
                 </ul>
             </nav>
             {open && (
-                <div className="md:hidden border-t border-gray-800
-                  bg-black/90 backdrop-blur">
+                <div className="md:hidden border-t border-gray-800 bg-black/90 backdrop-blur">
                     <ul className="flex flex-col items-center gap-6 py-6">
                         {navItems.map((item) => (
                             <li key={item.href}>
@@ -60,8 +59,6 @@ export default function Navbar() {
                     </ul>
                 </div>
             )}
-
-
         </header>
     );
 }

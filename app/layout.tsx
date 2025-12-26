@@ -11,7 +11,7 @@ export default function RootLayout({
   return (
     <html lang="tr">
       <body className="bg-gray-950 text-gray-100 flex flex-col min-h-screen">
-        <Navbar />
+        {/* Navbar artık sadece ana sayfada, burada kaldırıldı */}
         <main className="flex-1 max-w-5xl mx-auto p-6">
           {children}
         </main>
