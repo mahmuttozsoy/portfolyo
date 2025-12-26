@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FiMenu, FiX } from "react-icons/fi";
+import Link from "next/link";
 
 
 
@@ -26,6 +27,16 @@ export default function Navbar() {
                 >
                     {open ? <FiX size={24} /> : <FiMenu size={24} />}
                 </button>
+                {/* LOGO */}
+                <Link href="https://www.mahmutozsoy.dev" className="flex items-center gap-2 mt-4 hover:opacity-80 hover:scale-105 transition">
+                    <img
+                        src="/images/logomm.png"
+                        alt="Mahmut Özsoy Logo"
+                        width={120}
+                        height={120}
+                        className="hover:opacity-80 transition"
+                    />
+                </Link>
 
                 <ul className="hidden md:flex ml-auto gap-8 text-lg md:text-xl uppercase tracking-wider font-semibold">
                     {navItems.map((item) => (

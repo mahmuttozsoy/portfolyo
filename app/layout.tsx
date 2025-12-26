@@ -1,5 +1,4 @@
 import "./globals.css";
-import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
 
@@ -23,6 +22,25 @@ export default function RootLayout({
 export const metadata = {
   title: "Mahmut Özsoy | AI & Mobile Software Engineer",
   description:
-    "Mahmut Özsoy — Yapay zekâ, mobil uygulama ve akıllı sistemler geliştiren yazılım mühendisi. Projeler, portföy ve iletişim.",
+    "Mahmut Özsoy — Yapay zekâ ve mobil uygulama. Projeler, portföy ve iletişim.",
+  keywords: [
+    "Mahmut Özsoy",
+    "Mahmut Ozsoy",
+    "Mahmut Özsoy Portfolio",
+    "Mahmut Özsoy Yazılım Mühendisi",
+    "Mahmut Özsoy Software Engineer",
+    "Mahmut Özsoy Yapay Zeka",
+    "Mahmut Özsoy AI",
+    "Mahmut Özsoy Flutter",
+    "Mahmut Özsoy Mobile Developer",
+    "Mahmut Özsoy Machine Learning",
+    "Mahmut Özsoy Derin Öğrenme",
+    "Mahmut Özsoy Bandırma Onyedi Eylül Üniversitesi",
+    "Mahmut Özsoy Harran Üniversitesi",
+    "Bandırma Onyedi Eylül Üniversitesi Yazılım",
+    "Harran Üniversitesi Yazılım",
+    "mahmutozsoy.dev",
+  ],
+
 };
 
