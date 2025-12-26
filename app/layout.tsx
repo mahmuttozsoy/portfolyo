@@ -1,27 +1,12 @@
 import "./globals.css";
 import Footer from "./components/Footer";
 import NavbarWrapper from "./components/NavbarWrapper";
-
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  return (
-    <html lang="tr">
-      <body>
-        <NavbarWrapper />
-        {children}
-        <Footer />
-      </body>
-    </html>
-  );
-}
+import Script from "next/script";
 
 export const metadata = {
   title: "Mahmut Özsoy | AI & Mobile Software Engineer",
   description:
-    "Mahmut Özsoy — Yapay zekâ ve mobil uygulama. Projeler, portföy ve iletişim.",
+    "Mahmut Özsoy — yapay zekâ, mobil uygulama ve makine öğrenmesi alanlarında çalışan bir yazılım mühendisidir.",
   keywords: [
     "Mahmut Özsoy",
     "Mahmut Ozsoy",
@@ -36,47 +21,65 @@ export const metadata = {
     "Mahmut Özsoy Derin Öğrenme",
     "Mahmut Özsoy Bandırma Onyedi Eylül Üniversitesi",
     "Mahmut Özsoy Harran Üniversitesi",
-    "Bandırma Onyedi Eylül Üniversitesi Yazılım",
-    "Harran Üniversitesi Yazılım",
     "mahmutozsoy.dev",
   ],
-
 };
-<script
-  type="application/ld+json"
-  dangerouslySetInnerHTML={{
-    __html: JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "@id": "https://mahmutozsoy.dev/#person",
-      "name": "Mahmut Özsoy",
-      "url": "https://mahmutozsoy.dev",
-      "image": "https://mahmutozsoy.dev/images/mahmut.jpeg",
-      "jobTitle": "Software Engineer",
-      "description":
-        "Mahmut Özsoy, yapay zekâ, mobil uygulama geliştirme ve makine öğrenmesi alanlarında çalışan bir yazılım mühendisidir.",
-      "sameAs": [
-        "https://www.linkedin.com/in/mahmuttozsoy/",
-        "https://github.com/mahmutozsoy21"
-      ],
-      "alumniOf": [
-        {
-          "@type": "CollegeOrUniversity",
-          "name": "Bandırma Onyedi Eylül Üniversitesi"
-        },
 
-      ],
-      "knowsAbout": [
-        "Artificial Intelligence",
-        "Machine Learning",
-        "Deep Learning",
-        "Flutter",
-        "Mobile Application Development",
-        "Computer Vision",
-        "Intelligent Systems"
-      ]
-    }),
-  }}
-/>
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <html lang="tr">
+      <head>
+        <Script
+          id="person-schema"
+          type="application/ld+json"
+          strategy="beforeInteractive"
+        >
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "@id": "https://mahmutozsoy.dev/#person",
+            name: "Mahmut Özsoy",
+            url: "https://mahmutozsoy.dev",
+            image: "https://mahmutozsoy.dev/images/mahmut.jpeg",
+            jobTitle: "Software Engineer",
+            description:
+              "Mahmut Özsoy, yapay zekâ, mobil uygulama ve makine öğrenmesi alanlarında çalışan bir yazılım mühendisidir.",
+            sameAs: [
+              "https://www.linkedin.com/in/mahmuttozsoy/",
+              "https://github.com/mahmutozsoy21",
+            ],
+            alumniOf: [
+              {
+                "@type": "CollegeOrUniversity",
+                name: "Bandırma Onyedi Eylül Üniversitesi",
+              },
+              {
+                "@type": "CollegeOrUniversity",
+                name: "Harran Üniversitesi",
+              },
+            ],
+            knowsAbout: [
+              "Artificial Intelligence",
+              "Machine Learning",
+              "Deep Learning",
+              "Flutter",
+              "Computer Vision",
+              "Mobile Application Development",
+              "Intelligent Systems",
+            ],
+          })}
+        </Script>
+      </head>
 
-
+      <body>
+        <NavbarWrapper />
+        {children}
+        <Footer />
+      </body>
+    </html>
+  );
+}
