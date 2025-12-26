@@ -16,6 +16,12 @@ export default function ContactForm() {
             setError("Lütfen ad, e-posta ve mesaj alanlarını doldurun.");
             return false;
         }
+        // Basit e-posta regex kontrolü
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            setError("Geçerli bir e-posta adresi girin.");
+            return false;
+        }
         setError("");
         return true;
     }
