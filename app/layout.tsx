@@ -4,7 +4,11 @@ import NavbarWrapper from "./components/NavbarWrapper";
 import Script from "next/script";
 
 export const metadata = {
-  title: "Mahmut Özsoy | AI & Mobile Software Engineer",
+  title: {
+    default: "Mahmut Özsoy | AI & Mobile Software Engineer",
+    template: "%s | Mahmut Özsoy",
+  },
+
   description:
     "Mahmut Özsoy — yapay zekâ, mobil uygulama ve makine öğrenmesi alanlarında çalışan bir yazılım mühendisidir.",
   keywords: [
