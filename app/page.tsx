@@ -152,7 +152,7 @@ hover:shadow-[0_0_12px_rgba(255,255,255,0.25)]
                               border border-gray-500/30 shadow-2xl mt-8 md:mt-0"
               >
                 <Image
-                  src="/images/foto.jpg"
+                  src="/images/foto.JPG"
                   alt="Mahmut Özsoy"
                   fill
                   className="object-cover"
