@@ -3,7 +3,6 @@
 import AboutSection from "./components/AboutSection";
 import ProjectsSection from "./components/ProjectsSection";
 import ContactSection from "./components/ContactSection";
-import Navbar from "./components/Navbar";
 import Image from "next/image";
 import { motion } from "framer-motion";
 
