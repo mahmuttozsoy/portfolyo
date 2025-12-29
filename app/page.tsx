@@ -65,7 +65,7 @@ export default function Home() {
 
               <h2 className="max-w-md text-gray-299/90 leading-relaxed text-base md:text-lg">
                 Yapay zekâ ve mobil uygulama üzerine çalışan bir yazılım
-                mühe1ndisiyim. Gerçek dünya problemlerine yenilikçi çözümler
+                mühendisiyim. Gerçek dünya problemlerine yenilikçi çözümler
                 getirirken performans ve kullanıcı deneyimini ön planda tutarım.
               </h2>
 
@@ -78,7 +78,7 @@ export default function Home() {
                     label: "E-posta",
                   },
                   {
-                    href: "https://github.com/mahmutozsoy21",
+                    href: "https://github.com/mahmuttozsoy",
                     icon: <FaGithub />,
                     label: "GitHub",
                   },

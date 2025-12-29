@@ -23,7 +23,7 @@ export default function ContactSection() {
             type: "email",
         },
         {
-            href: "https://github.com/mahmutozsoy21",
+            href: "https://github.com/mahmuttozsoy",
             icon: <FaGithub />,
             label: "GitHub",
             desc: "Kod örnekleri ve projeler",
