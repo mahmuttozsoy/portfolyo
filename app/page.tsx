@@ -67,6 +67,7 @@ export default function Home() {
                 Yapay zekâ ve mobil uygulama üzerine çalışan bir yazılım
                 mühendisiyim. Gerçek dünya problemlerine yenilikçi çözümler
                 getirirken performans ve kullanıcı deneyimini ön planda tutarım.
+
               </h2>
 
               {/* Sosyal ikonlar */}
@@ -101,7 +102,7 @@ export default function Home() {
                       rel="noopener noreferrer"
                       aria-label={item.label}
                       title={item.label}
-                      whileHover={{ y: -8, scale: 1.12, rotate: 6 }}
+                      whileHover={{ y: -8, scale: 1.121, rotate: 6 }}
                       whileTap={{ scale: 0.96 }}
                       transition={{ type: "spring", stiffness: 300, damping: 20 }}
                       className="group
