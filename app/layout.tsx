@@ -18,6 +18,11 @@ export const metadata = {
   keywords: [
     "Mahmut Özsoy",
     "Mahmut Ozsoy",
+    "MAHMUT ÖZSOY",
+    "mahmut özsoy"
+    ,
+    "mahmut ozsoy",
+    "Yazılım Mühendisi",
     "Mahmut Özsoy Portfolio",
     "Mahmut Özsoy Yazılım Mühendisi",
     "Mahmut Özsoy Software Engineer",
@@ -58,17 +63,18 @@ export default function RootLayout({
               "Mahmut Özsoy, yapay zekâ, mobil uygulama ve makine öğrenmesi alanlarında çalışan bir yazılım mühendisidir.",
             sameAs: [
               "https://www.linkedin.com/in/mahmuttozsoy/",
-              "https://github.com/mahmutozsoy21",
+              "https://github.com/mahmuttozsoy",
+              "https://www.instagram.com/mahmuttozsoy/",
+              "mailto:mahmutozsoy2604@gmail.com"
+
             ],
             alumniOf: [
               {
                 "@type": "CollegeOrUniversity",
                 name: "Bandırma Onyedi Eylül Üniversitesi",
+
               },
-              {
-                "@type": "CollegeOrUniversity",
-                name: "Harran Üniversitesi",
-              },
+
             ],
             knowsAbout: [
               "Artificial Intelligence",

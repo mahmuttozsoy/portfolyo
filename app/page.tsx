@@ -11,8 +11,9 @@ import {
   FaGithub,
   FaLinkedin,
   FaEnvelope,
+  FaInstagram
 } from "react-icons/fa";
-import { FaInstagram } from "react-icons/fa6";
+
 
 export default function Home() {
 
@@ -41,7 +42,8 @@ export default function Home() {
 
               <h2
                 className="
-    text-6xl md:text-4xl
+    text-[clamp(2.8rem,5vw,3.2rem)]
+ md:text-5xl
     font-medium
     tracking-wide
     mb-2
@@ -53,17 +55,17 @@ export default function Home() {
     text-transparent
   "
               >
-                I am Mahmut Özsoy
+                Mahmut Özsoy
               </h2>
 
 
 
-              <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold leading-tight bg-gradient-to-r from-emerald-100 via-emerald-0 to-emerald-0 bg-clip-text text-transparent">
+              <h1 className="text-6xl md:text-6xl lg:text-7xl font-extrabold leading-tight bg-gradient-to-r from-emerald-100 via-emerald-0 to-emerald-0 bg-clip-text text-transparent">
                 Software <br /> Engineer
               </h1>
 
 
-              <h2 className="max-w-md text-gray-299/90 leading-relaxed text-base md:text-lg">
+              <h2 className="max-w-md text-gray-300/90 leading-relaxed text-base md:text-lg text-">
                 Yapay zekâ ve mobil uygulama üzerine çalışan bir yazılım
                 mühendisiyim. Gerçek dünya problemlerine yenilikçi çözümler
                 getirirken performans ve kullanıcı deneyimini ön planda tutarım.
@@ -106,7 +108,7 @@ export default function Home() {
                       whileTap={{ scale: 0.96 }}
                       transition={{ type: "spring", stiffness: 300, damping: 20 }}
                       className="group
-w-14 h-14 md:w-16 md:h-16
+w-16 h-16 md:w-16 md:h-16
 flex items-center justify-center
 rounded-full
 border border-gray-700
@@ -116,7 +118,7 @@ hover:border-gray-300
 hover:text-gray-100
 hover:shadow-lg
 hover:shadow-white/20
-text-xl md:text-2xl
+text-2xl md:text-2xl
 transition-all duration-300
 hover:shadow-[0_0_12px_rgba(255,255,255,0.25)]
 
@@ -168,53 +170,19 @@ hover:shadow-[0_0_12px_rgba(255,255,255,0.25)]
         {/* DİĞER BÖLÜMLER */}
 
         <hr
-          className="
-    my-12
-    mx-auto
-    max-w-4xl
-    border-0
-    h-[2px]
-    bg-gradient-to-r
-    from-transparent
-    via-gray-300/80
-    to-transparent
-    rounded-full
-    shadow-[0_0_6px_rgba(255,255,255,0.25)]
-  "
+          className="my-12 mx-auto max-w-4xl border-0 h-[2px] bg-gradient-to-r from-transparent via-gray-300/80 to-transparent rounded-full shadow-[0_0_6px_rgba(255,255,255,0.25)]"
         />
 
         <AboutSection />
         <hr
-          className="
-    my-12
-    mx-auto
-    max-w-4xl
-    border-0
-    h-[2px]
-    bg-gradient-to-r
-    from-transparent
-    via-gray-300/80
-    to-transparent
-    rounded-full
-    shadow-[0_0_6px_rgba(255,255,255,0.25)]
-  "
+          className="my-12 mx-auto max-w-4xl border-0 h-[2px] bg-gradient-to-r from-transparent via-gray-300/80 to-transparent rounded-full shadow-[0_0_6px_rgba(255,255,255,0.25)]"
         />
+
         <ProjectsSection />
         <hr
-          className="
-    my-12
-    mx-auto
-    max-w-4xl
-    border-0
-    h-[2px]
-    bg-gradient-to-r
-    from-transparent
-    via-gray-300/80
-    to-transparent
-    rounded-full
-    shadow-[0_0_6px_rgba(255,255,255,0.25)]
-  "
+          className="my-12 mx-auto max-w-4xl border-0 h-[2px] bg-gradient-to-r from-transparent via-gray-300/80 to-transparent rounded-full shadow-[0_0_6px_rgba(255,255,255,0.25)]"
         />
+
         <ContactSection />
 
 
