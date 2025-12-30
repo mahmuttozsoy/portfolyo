@@ -60,7 +60,7 @@ export default function Home() {
 
 
 
-              <h1 className="text-7xl md:text-6xl lg:text-7xl font-extrabold leading-tight bg-gradient-to-r from-emerald-100 via-emerald-0 to-emerald-0 bg-clip-text text-transparent">
+              <h1 className="text-7xl md:text-6xl lg:text-7xl font-extrabold leading-tight bg-gradient-to-r from-emerald-100 via-emerald-100 to-emerald-100 bg-clip-text text-transparent">
                 Software <br /> Engineer
               </h1>
 
