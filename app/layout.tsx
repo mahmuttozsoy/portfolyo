@@ -19,8 +19,7 @@ export const metadata = {
     "Mahmut Özsoy",
     "Mahmut Ozsoy",
     "MAHMUT ÖZSOY",
-    "mahmut özsoy"
-    ,
+    "mahmut özsoy",
     "mahmut ozsoy",
     "Yazılım Mühendisi",
     "Mahmut Özsoy Portfolio",
@@ -54,7 +53,7 @@ export default function RootLayout({
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Person",
-            "@id": "https://mahmutozsoy.dev/#person",
+            "@id": "Mahmut Ozsoy",
             name: "Mahmut Özsoy",
             url: "https://mahmutozsoy.dev",
             image: "https://mahmutozsoy.dev/images/mahmut.jpeg",

@@ -1,36 +1,71 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Mahmut Özsoy – Personal Portfolio
 
-## Getting Started
+This repository contains the source code of my personal portfolio website.
+The project is built with a modern, scalable architecture using **Next.js App Router**.
 
-First, run the development server:
+🔗 **Live Website:** https://mahmutozsoy.dev  
+🔗 **GitHub:** https://github.com/mahmuttozsoy  
+🔗 **LinkedIn:** https://www.linkedin.com/in/mahmuttozsoy/
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 👤 About Me
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+I am a **Software Engineer** focused on:
+- Web application development
+- Flutter Developer
+- Artificial Intelligence & Machine Learning
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+This website represents my personal brand, projects, and professional background.
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 🛠 Tech Stack
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Next.js 14 (App Router)**
+- **TypeScript**
+- **Tailwind CSS**
+- **Schema.org (JSON-LD) for SEO**
+- **Vercel** for deployment
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## 📁 Project Structure
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```txt
+app/
+ ├─ components/
+ │   ├─ AboutSection.tsx
+ │   ├─ AnimatedPage.tsx
+ │   ├─ ContactForm.tsx
+ │   ├─ ContactSection.tsx
+ │   ├─ Footer.tsx
+ │   ├─ Logo.tsx
+ │   ├─ Navbar.tsx
+ │   ├─ NavbarWrapper.tsx
+ │   └─ ProjectsSection.tsx
+ │
+ ├─ projects/[slug]/
+ │   └─ page.tsx
+ │
+ ├─ layout.tsx
+ ├─ page.tsx
+ ├─ globals.css
+ └─ favicon.ico
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+public/
+ ├─ images/
+ ├─ robots.txt
+ ├─ sitemap.xml
+ ├─ google*.html
+ └─ *.svg
+
+## Projeyi local ortamınızda kurma
+ npm install
+
+ npm run dev
+
+ http://localhost:3000
+    
+
+
