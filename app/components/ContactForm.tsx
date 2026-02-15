@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { FaPaperPlane } from "react-icons/fa";
 
 export default function ContactForm() {
     const [name, setName] = useState("");
@@ -9,6 +10,7 @@ export default function ContactForm() {
     const [message, setMessage] = useState("");
     const [error, setError] = useState("");
     const [sent, setSent] = useState(false);
+    const [sending, setSending] = useState(false);
 
     function validate() {
         if (!name.trim() || !email.trim() || !message.trim()) {
@@ -29,6 +31,7 @@ export default function ContactForm() {
     async function handleSubmit(e: React.FormEvent) {
         e.preventDefault();
         if (!validate()) return;
+        setSending(true);
 
         const formData = new FormData();
         formData.append("name", name);
@@ -47,6 +50,7 @@ export default function ContactForm() {
         });
 
         const data = await res.json();
+        setSending(false);
 
         if (res.ok) {
             setSent(true);
@@ -54,7 +58,7 @@ export default function ContactForm() {
             setEmail("");
             setSubject("");
             setMessage("");
-            setTimeout(() => setSent(false), 2500);
+            setTimeout(() => setSent(false), 5000);
         } else {
             setError(
                 data?.errors?.[0]?.message ||
@@ -65,9 +69,8 @@ export default function ContactForm() {
     }
 
     return (
-        <form onSubmit={handleSubmit} className="space-y-4 max-w-md">
-            <div className="grid grid-cols-1 gap-4">
-
+        <form onSubmit={handleSubmit} className="space-y-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {/* AD */}
                 <input
                     value={name}
@@ -75,16 +78,14 @@ export default function ContactForm() {
                     placeholder="Adın"
                     name="name"
                     className="
-            w-full px-4 py-2 rounded-lg
-            bg-black/30
-            border border-gray-800
-            text-gray-100 placeholder-gray-500
+            w-full px-5 py-4 rounded-xl
+            bg-zinc-900/50 backdrop-blur-sm
+            border border-zinc-800
+            text-white placeholder-zinc-600
             focus:outline-none
-            focus:ring-2 focus:ring-gray-400
-            focus:border-gray-400
-            transition
-            hover:border-gray-300
-            hover:text-gray-100
+            focus:ring-2 focus:ring-emerald-500/20
+            focus:border-emerald-500/50
+            transition-all duration-300
           "
                 />
 
@@ -96,18 +97,19 @@ export default function ContactForm() {
                     type="email"
                     name="email"
                     className="
-            w-full px-4 py-2 rounded-lg
-            bg-black/30
-            border border-gray-800
-            text-gray-100 placeholder-gray-500
+            w-full px-5 py-4 rounded-xl
+            bg-zinc-900/50 backdrop-blur-sm
+            border border-zinc-800
+            text-white placeholder-zinc-600
             focus:outline-none
-            focus:ring-2 focus:ring-gray-400
-            focus:border-gray-400
-            transition
-            hover:border-gray-300
-            hover:text-gray-100
+            focus:ring-2 focus:ring-emerald-500/20
+            focus:border-emerald-500/50
+            transition-all duration-300
           "
                 />
+            </div>
+
+            <div className="grid grid-cols-1 gap-4">
 
                 {/* SUBJECT */}
                 <input
@@ -116,16 +118,14 @@ export default function ContactForm() {
                     placeholder="Konu"
                     name="subject"
                     className="
-            w-full px-4 py-2 rounded-lg
-            bg-black/30
-            border border-gray-800
-            text-gray-100 placeholder-gray-500
+            w-full px-5 py-4 rounded-xl
+            bg-zinc-900/50 backdrop-blur-sm
+            border border-zinc-800
+            text-white placeholder-zinc-600
             focus:outline-none
-            focus:ring-2 focus:ring-gray-400
-            focus:border-gray-400
-            transition
-            hover:border-gray-300
-            hover:text-gray-100
+            focus:ring-2 focus:ring-emerald-500/20
+            focus:border-emerald-500/50
+            transition-all duration-300
           "
                 />
 
@@ -137,49 +137,48 @@ export default function ContactForm() {
                     rows={5}
                     name="message"
                     className="
-            w-full px-4 py-3 rounded-lg
-            bg-black/30
-            border border-gray-800
-            text-gray-100 placeholder-gray-500
+            w-full px-5 py-4 rounded-xl
+            bg-zinc-900/50 backdrop-blur-sm
+            border border-zinc-800
+            text-white placeholder-zinc-600
             focus:outline-none
-            focus:ring-2 focus:ring-gray-400
-            focus:border-gray-400
+            focus:ring-2 focus:ring-emerald-500/20
+            focus:border-emerald-500/50
             resize-none
-            transition
-            hover:border-gray-300
-            hover:text-gray-100
+            transition-all duration-300
           "
                 />
             </div>
 
             {error && (
-                <div className="text-sm text-red-400">{error}</div>
+                <div className="p-3 rounded-lg bg-red-500/10 border border-red-500/20 text-sm text-red-400">
+                    {error}
+                </div>
             )}
 
-            <div className="flex items-center gap-4">
-                <button
-                    type="submit"
-                    className="
-            inline-flex items-center gap-2
-            px-6 py-2 rounded-full
-            border border-gray-700
-            bg-black/40 backdrop-blur
-            text-gray-300
-            hover:border-gray-300
-            hover:text-gray-100
-            hover:shadow-[0_0_12px_rgba(255,255,255,0.25)]
+            <button
+                type="submit"
+                disabled={sending}
+                className="
+            group flex items-center justify-center gap-2
+            w-full sm:w-auto px-8 py-4 rounded-xl
+            bg-white text-black font-semibold
+            hover:bg-emerald-400 hover:text-black hover:scale-[1.02]
+            disabled:opacity-50 disabled:cursor-not-allowed
             transition-all duration-300
           "
-                >
-                    Gönder
-                </button>
-
-                {sent && (
-                    <span className="text-sm text-gray-300">
-                        Mesajınız Başarıyla Gönderildi!
-                    </span>
+            >
+                {sending ? "Gönderiliyor..." : (
+                    <>
+                        Gönder <FaPaperPlane className="group-hover:translate-x-1 transition-transform" />
+                    </>
                 )}
-            </div>
+            </button>
+            {sent && (
+                <div className="mt-4 p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-center">
+                    Mesajınız başarıyla gönderildi! En kısa sürede döneceğim.
+                </div>
+            )}
         </form>
     );
 }

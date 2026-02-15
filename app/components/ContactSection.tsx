@@ -1,4 +1,3 @@
-
 "use client";
 import ContactForm from "./ContactForm";
 
@@ -45,99 +44,84 @@ export default function ContactSection() {
         },
     ];
 
+    const handleCopy = (e: React.MouseEvent, text: string) => {
+        e.preventDefault();
+        navigator.clipboard?.writeText(text);
+        setCopied(text);
+        setTimeout(() => setCopied(null), 2000);
+    };
+
     return (
-        <section id="contact" className="py-12 md:py-24">
-            <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12 items-start">
+        <section id="contact" className="py-12 md:py-24 relative">
+            <div className="absolute bottom-0 left-0 w-[300px] md:w-[500px] h-[300px] md:h-[500px] bg-blue-900/10 rounded-full blur-[80px] md:blur-[128px] pointer-events-none" />
 
-                {/* SOL TARAF – FORM */}
+            <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center relative z-10">
+
+                {/* Left Side - Form */}
                 <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5 }}
+                    initial={{ opacity: 0, x: -30 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.6 }}
                     viewport={{ once: true }}
-                    className="space-y-6"
+                    className="space-y-8"
                 >
-                    <h2 className=" text-3xl font-bold mb-12
-    text-zinc-300
-    inline-block px-4 py-2 rounded-lg
-    transition-all duration-300
-    hover:text-zinc-100
-    hover:bg-zinc-300/10
-    hover:shadow-lg hover:shadow-zinc-400/20">İletişim</h2>
-
-                    <p className="text-gray-400 max-w-md">
-                        Yeni bir proje, iş birliği veya fikir hakkında
-                        konuşmak istersen aşağıdaki formu doldurup gönder butonuna
-                        tıklayabilirsin — e-posta istemcinizde yeni bir mesaj açılacaktır.
-                    </p>
+                    <div>
+                        <h2 className="text-4xl font-bold bg-gradient-to-r from-white to-gray-500 bg-clip-text text-transparent mb-4">
+                            İletişim
+                        </h2>
+                        <div className="w-20 h-1 bg-emerald-500 rounded-full mb-6" />
+                        <p className="text-gray-400 text-lg leading-relaxed max-w-lg">
+                            Yeni bir proje, iş birliği veya sadece merhaba demek için
+                            aşağıdaki formu kullanabilirsiniz. En kısa sürede dönüş yapacağım.
+                        </p>
+                    </div>
 
                     <ContactForm />
                 </motion.div>
 
-                {/* SAĞ TARAF – İKON KARTLAR */}
+                {/* Right Side - Links */}
                 <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.1 }}
+                    initial={{ opacity: 0, x: 30 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.6, delay: 0.2 }}
                     viewport={{ once: true }}
-                    className="flex md:justify-end items-end"
+                    className="flex flex-col gap-4"
                 >
-                    <div className="flex flex-col gap-3 w-full md:w-auto mt-8 md:mt-48">
-                        {items.map((item, index) => (
-                            <motion.a
-                                key={index}
-                                href={item.href}
-                                target={item.href.startsWith("http") ? "_blank" : undefined}
-                                rel="noopener noreferrer"
-                                aria-label={item.label}
-                                whileHover={{ y: -6, scale: 1.03 }}
-                                whileTap={{ scale: 0.98 }}
-                                transition={{ duration: 0.25 }}
-                                className="group
-flex items-center gap-4
-p-3
-rounded-xl
-border border-gray-800
-bg-black/30
-text-gray-300
+                    {items.map((item, index) => (
+                        <motion.a
+                            key={index}
+                            href={item.href}
+                            target={item.href.startsWith("http") ? "_blank" : undefined}
+                            rel="noopener noreferrer"
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.3 + index * 0.1 }}
+                            viewport={{ once: true }}
+                            className="group flex items-center gap-5 p-5 rounded-2xl bg-zinc-900/40 border border-zinc-800 hover:border-emerald-500/30 hover:bg-zinc-800/60 transition-all duration-300"
+                        >
+                            <div className="w-14 h-14 flex items-center justify-center rounded-xl bg-zinc-800/80 text-2xl text-emerald-400 group-hover:scale-110 transition-transform duration-300">
+                                {item.icon}
+                            </div>
 
-hover:bg-gray-900/60
-hover:border-gray-400
-hover:text-gray-100
-hover:shadow-lg
-hover:shadow-white/15
+                            <div className="flex-1">
+                                <h4 className="font-semibold text-white group-hover:text-emerald-300 transition-colors">
+                                    {item.label}
+                                </h4>
+                                <p className="text-sm text-gray-400 group-hover:text-gray-300 transition-colors">
+                                    {item.desc}
+                                </p>
+                            </div>
 
-focus:outline-none
-focus:ring-2
-focus:ring-gray-400
-transition-all duration-300"
-                            >
-                                <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center rounded-lg text-xl md:text-2xl bg-black/20 border border-gray-700">
-                                    {item.icon}
-                                </div>
-
-                                <div className="flex-1 min-w-0">
-                                    <div className="font-semibold text-white">{item.label}</div>
-                                    <div className="text-sm text-gray-400 truncate">{item.desc}</div>
-                                </div>
-
-                                {item.type === "email" && (
-                                    <button
-                                        onClick={(e) => {
-                                            e.preventDefault();
-                                            navigator.clipboard?.writeText(item.desc || "");
-                                            setCopied(item.desc);
-                                            setTimeout(() => setCopied(null), 1500);
-                                        }}
-                                        className="ml-2 text-sm text-gray-300 hover:text-white bg-black/20 px-3 py-1 rounded-full border border-gray-800"
-                                        aria-label="E-posta adresini kopyala"
-                                    >
-                                        {copied === item.desc ? "Kopyalandı" : "Kopyala"}
-                                    </button>
-                                )}
-                            </motion.a>
-                        ))}
-                    </div>
+                            {item.type === "email" && (
+                                <button
+                                    onClick={(e) => handleCopy(e, item.desc)}
+                                    className="px-4 py-2 text-xs font-medium text-zinc-400 bg-zinc-800/50 hover:bg-emerald-500/20 hover:text-emerald-400 rounded-full transition-all"
+                                >
+                                    {copied === item.desc ? "Kopyalandı!" : "Kopyala"}
+                                </button>
+                            )}
+                        </motion.a>
+                    ))}
                 </motion.div>
 
             </div>

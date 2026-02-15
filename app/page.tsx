@@ -1,192 +1,115 @@
 "use client";
 
 import AboutSection from "./components/AboutSection";
+import ExperienceSection from "./components/ExperienceSection";
+import EducationSection from "./components/EducationSection";
+import SkillSection from "./components/SkillSection";
 import ProjectsSection from "./components/ProjectsSection";
 import ContactSection from "./components/ContactSection";
-import Image from "next/image";
 import { motion } from "framer-motion";
-
-// Removed duplicate import of motion and AnimatePresence
-import {
-  FaGithub,
-  FaLinkedin,
-  FaEnvelope,
-  FaInstagram
-} from "react-icons/fa";
-
+import { FaGithub, FaLinkedin, FaInstagram, FaEnvelope } from "react-icons/fa";
 
 export default function Home() {
-
   return (
-    <>
+    <main className="min-h-screen bg-transparent text-white font-sans selection:bg-emerald-500/30">
 
+      {/* HERO SECTION */}
+      <section className="relative h-screen flex flex-col justify-center items-center text-center px-6 overflow-hidden">
 
-      <main className="space-y-6">
+        {/* Abstract Background Elements */}
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-emerald-600/20 rounded-full blur-[128px] pointer-events-none" />
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-[128px] pointer-events-none" />
 
-        {/* HERO */}
-        <section className="relative min-h-[60vh] overflow-hidden">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="relative z-10 max-w-4xl mx-auto space-y-8"
+        >
+          {/* Badge */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.2 }}
+            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-sm text-gray-400 mb-4"
+          >
+            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+            Available for new projects
+          </motion.div>
 
+          {/* Main Title */}
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[1.1]">
+            <span className="block text-gray-500 text-2xl md:text-4xl lg:text-5xl font-light mb-2 tracking-normal">
+              Hi, I'm Mahmut Özsoy
+            </span>
+            <span className="bg-gradient-to-b from-white via-white to-gray-500 bg-clip-text text-transparent">
+              Software Engineer
+            </span>
+          </h1>
 
+          {/* Subtitle */}
+          <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed">
+            Specializing in <span className="text-emerald-400 font-medium">Artificial Intelligence</span>, <span className="text-blue-400 font-medium">Mobile Development (Flutter)</span>, and building intelligent systems that solve real-world problems.
+          </p>
 
-          {/* İçerik */}
-          <div className="relative max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 items-center gap-12 min-h-[65vh] md:min-h-[85vh]">
-
-            {/* SOL KOLON */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-              className="space-y-6"
+          {/* Actions */}
+          <div className="flex flex-col md:flex-row gap-4 justify-center pt-8">
+            <a
+              href="#projects"
+              className="px-8 py-4 bg-emerald-600 hover:bg-emerald-500 text-white font-medium rounded-full transition-all shadow-[0_0_20px_rgba(16,185,129,0.3)] hover:shadow-[0_0_30px_rgba(16,185,129,0.5)]"
             >
-
-              <h2
-                className="
-    text-[clamp(2.8rem,5vw,3.2rem)]
- md:text-5xl
-    font-medium
-    tracking-wide
-    mb-2
-    bg-gradient-to-r
-    from-gray-400
-    via-gray-300
-    to-gray-100
-    bg-clip-text
-    text-transparent
-  "
-              >
-                Mahmut Özsoy
-              </h2>
-
-
-
-              <h1 className="text-7xl md:text-6xl lg:text-7xl font-extrabold leading-tight bg-gradient-to-r from-emerald-100 via-emerald-100 to-emerald-100 bg-clip-text text-transparent">
-                Software <br /> Engineer
-              </h1>
-
-
-              <h2 className="max-w-md text-gray-300/90 leading-relaxed text-base md:text-lg text-">
-                Yapay zekâ ve mobil uygulama üzerine çalışan bir yazılım
-                mühendisiyim. Gerçek dünya problemlerine yenilikçi çözümler
-                getirirken performans ve kullanıcı deneyimini ön planda tutarım.
-
-              </h2>
-
-              {/* Sosyal ikonlar */}
-              <div className="flex gap-4 pt-4">
-                {[
-                  {
-                    href: "mailto:mahmutozsoy2604@gmail.com",
-                    icon: <FaEnvelope />,
-                    label: "E-posta",
-                  },
-                  {
-                    href: "https://github.com/mahmuttozsoy",
-                    icon: <FaGithub />,
-                    label: "GitHub",
-                  },
-                  {
-                    href: "https://www.linkedin.com/in/mahmuttozsoy/",
-                    icon: <FaLinkedin />,
-                    label: "LinkedIn",
-                  },
-                  {
-                    href: "https://www.instagram.com/mahmuttozsoy",
-                    icon: <FaInstagram />,
-                    label: "Instagram",
-                  }
-
-                ].map((item, index) => (
-                  <div key={index} className="relative">
-                    <motion.a
-                      href={item.href}
-                      target={item.href.startsWith("http") ? "_blank" : undefined}
-                      rel="noopener noreferrer"
-                      aria-label={item.label}
-                      title={item.label}
-                      whileHover={{ y: -8, scale: 1.121, rotate: 6 }}
-                      whileTap={{ scale: 0.96 }}
-                      transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                      className="group
-w-16 h-16 md:w-16 md:h-16
-flex items-center justify-center
-rounded-full
-border border-gray-700
-bg-black/40 backdrop-blur
-text-gray-300
-hover:border-gray-300
-hover:text-gray-100
-hover:shadow-lg
-hover:shadow-white/20
-text-2xl md:text-2xl
-transition-all duration-300
-hover:shadow-[0_0_12px_rgba(255,255,255,0.25)]
-
-"
-                    >
-                      <span className="pointer-events-none">{item.icon}</span>
-                    </motion.a>
-
-                    {/* Tooltip */}
-                    <span className="absolute -bottom-9 left-1/2 transform -translate-x-1/2 bg-black/80 text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">
-                      {item.label}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
-
-            {/* SAĞ KOLON – GÖRSEL */}
-            <motion.div
-
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-              className="flex justify-center md:justify-end space-y-6 text-center md:text-left"
-
+              View My Work
+            </a>
+            <a
+              href="#contact"
+              className="px-8 py-4 bg-white/5 hover:bg-white/10 border border-white/10 text-white font-medium rounded-full transition-all backdrop-blur-sm"
             >
-              <motion.div
-                whileHover={{ rotate: 0, scale: 1.06 }}
-                whileTap={{ scale: 0.98 }}
-                transition={{ type: "spring", stiffness: 200, damping: 18 }}
-                className="relative w-[220px] h-[300px] md:w-[280px] md:h-[360px] rounded-3xl overflow-hidden
-                              rotate-6 hover:rotate-0 transition-transform duration-500
-                              border border-gray-500/30 shadow-2xl mt-8 md:mt-0"
-              >
-                <Image
-                  src="/images/foto.JPG"
-                  alt="Mahmut Özsoy"
-                  fill
-                  className="object-cover"
-                />
-
-                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent pointer-events-none rounded-3xl" />
-              </motion.div>
-            </motion.div>
-
+              Contact Me
+            </a>
           </div>
-        </section>
-        {/* DİĞER BÖLÜMLER */}
 
-        <hr
-          className="my-12 mx-auto max-w-4xl border-0 h-[2px] bg-gradient-to-r from-transparent via-gray-300/80 to-transparent rounded-full shadow-[0_0_6px_rgba(255,255,255,0.25)]"
-        />
+          {/* Socials */}
+          <div className="flex gap-6 justify-center pt-12 text-gray-400">
+            {[
+              { icon: FaGithub, href: "https://github.com/mahmuttozsoy" },
+              { icon: FaLinkedin, href: "https://www.linkedin.com/in/mahmuttozsoy/" },
+              { icon: FaInstagram, href: "https://www.instagram.com/mahmuttozsoy" },
+              { icon: FaEnvelope, href: "mailto:mahmutozsoy2604@gmail.com" },
+            ].map((Item, i) => (
+              <a
+                key={i}
+                href={Item.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-white hover:scale-110 transition-transform duration-200"
+              >
+                <Item.icon size={24} />
+              </a>
+            ))}
+          </div>
+        </motion.div>
 
+        {/* Scroll Indicator */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1, duration: 1 }}
+          className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-gray-500 text-sm"
+        >
+          <span>Scroll</span>
+          <div className="w-[1px] h-12 bg-gradient-to-b from-gray-500 to-transparent" />
+        </motion.div>
+      </section>
+
+      <div className="space-y-32 pb-32">
         <AboutSection />
-        <hr
-          className="my-12 mx-auto max-w-4xl border-0 h-[2px] bg-gradient-to-r from-transparent via-gray-300/80 to-transparent rounded-full shadow-[0_0_6px_rgba(255,255,255,0.25)]"
-        />
-
+        <ExperienceSection />
+        <EducationSection />
+        <SkillSection />
         <ProjectsSection />
-        <hr
-          className="my-12 mx-auto max-w-4xl border-0 h-[2px] bg-gradient-to-r from-transparent via-gray-300/80 to-transparent rounded-full shadow-[0_0_6px_rgba(255,255,255,0.25)]"
-        />
-
         <ContactSection />
+      </div>
 
-
-      </main >
-    </>
+    </main>
   );
 }

@@ -3,18 +3,53 @@ import Footer from "./components/Footer";
 import NavbarWrapper from "./components/NavbarWrapper";
 import Script from "next/script";
 import type { Metadata } from "next";
+import { Inter, JetBrains_Mono } from "next/font/google";
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: {
-    default: "Mahmut Özsoy | AI & Mobile Software Engineer",
+    default: "Mahmut Özsoy | Software Engineer",
     template: "%s | Mahmut Özsoy",
   },
+  applicationName: "Mahmut Özsoy",
+  authors: [{ name: "Mahmut Özsoy", url: "https://mahmutozsoy.dev" }],
+  creator: "Mahmut Özsoy",
+  publisher: "Mahmut Özsoy",
+  metadataBase: new URL("https://mahmutozsoy.dev"),
   icons: {
-    icon: "/favicon.ico",
-    apple: "/apple-touch-icon.png",
+    icon: "/images/logo1.png",
+    apple: "/images/logo1.png",
   },
   description:
-    "Mahmut Özsoy — yapay zekâ, mobil uygulama ve makine öğrenmesi alanlarında çalışan bir yazılım mühendisidir.",
+    "Yapay zekâ, Flutter ile mobil uygulama ve makine öğrenmesi alanlarında çalışan yazılım mühendisi.",
+  openGraph: {
+    type: "website",
+    locale: "tr_TR",
+    url: "https://mahmutozsoy.dev",
+    title: "Mahmut Özsoy | Software Engineer",
+    description:
+      "Yapay zekâ, Flutter ile mobil uygulama ve makine öğrenmesi alanlarında çalışan yazılım mühendisi.",
+    siteName: "Mahmut Özsoy",
+    images: [
+      {
+        url: "/images/foto.JPG",
+        width: 1200,
+        height: 630,
+        alt: "Mahmut Özsoy",
+      },
+    ],
+  },
   keywords: [
     "Mahmut Özsoy",
     "Yazılım Mühendisi",
@@ -23,7 +58,8 @@ export const metadata: Metadata = {
     "Flutter",
     "Machine Learning",
     "Derin Öğrenme",
-    "mahmutozsoy.dev",
+    "Mobile Developer",
+    "Full Stack Developer"
   ],
 };
 
@@ -52,7 +88,7 @@ export default function RootLayout({
         "@id": "https://mahmutozsoy.dev/#person",
         "name": "Mahmut Özsoy",
         "url": "https://mahmutozsoy.dev",
-        "image": "https://mahmutozsoy.dev/images/mahmut.jpeg",
+        "image": "https://mahmutozsoy.dev/images/foto.JPG",
         "jobTitle": "Software Engineer",
         "description": "Mahmut Özsoy, yapay zekâ, mobil uygulama ve makine öğrenmesi alanlarında çalışan bir yazılım mühendisidir.",
         "sameAs": [
@@ -82,7 +118,7 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="tr">
+    <html lang="tr" className={`${inter.variable} ${jetbrainsMono.variable}`}>
       <head>
         <Script
           id="structured-data"
@@ -91,10 +127,13 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
         />
       </head>
-      <body>
+      <body className="antialiased">
+        <div className="fixed inset-0 bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]" />
         <NavbarWrapper />
-        {children}
-        <Footer />
+        <div className="relative z-10">
+          {children}
+          <Footer />
+        </div>
       </body>
     </html>
   );
