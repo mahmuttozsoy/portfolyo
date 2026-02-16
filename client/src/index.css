@@ -1,0 +1,71 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #050505;
+  --color-foreground: #ededed;
+
+  --color-primary: #10b981;
+  --color-primary-foreground: #000000;
+
+  --color-zinc-850: #1f1f22;
+  --color-zinc-950: #0c0c0e;
+}
+
+:root {
+  --background: #050505;
+  --foreground: #ededed;
+
+  /* Modern Dark Palette */
+  --card-bg: rgba(20, 20, 22, 0.6);
+  --card-border: rgba(255, 255, 255, 0.08);
+
+  --primary: #10b981;
+  /* Emerald 500 equivalent */
+  --secondary: #3b82f6;
+  /* Blue 500 equivalent */
+
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: var(--foreground);
+  background-color: var(--background);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  display: block;
+  /* Vite default was flex place-items-center, changing to block for normal flow */
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Selection Color */
+::selection {
+  background: rgba(16, 185, 129, 0.3);
+  color: #fff;
+}
